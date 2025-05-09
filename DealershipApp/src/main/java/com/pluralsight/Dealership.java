@@ -65,7 +65,7 @@ public class Dealership {
 
     public List<Vehicle> getVehiclesByType(String vehicleType){
         return inventory.stream()
-                .filter(vehicle -> vehicleType.isEmpty()||vehicle.getColor().toLowerCase().contains(vehicleType.toLowerCase()))
+                .filter(vehicle -> vehicleType.isEmpty()||vehicle.getVehicleType().toLowerCase().contains(vehicleType.toLowerCase()))
                 .collect(Collectors.toList());
     }
 

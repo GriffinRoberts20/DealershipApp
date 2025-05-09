@@ -21,6 +21,14 @@ public class Vehicle {
         this.price = price;
     }
 
+    public void printVehicleInfo(){
+        String vehicleInfo = String.format("VIN: %d|Year: %d|Make: %s|Model: %s|Type: %s|Color: %s|Mileage: %d|Price: $%.2f",
+                this.getVin(),this.getYear(),this.getMake(),
+                this.getModel(),this.getVehicleType(),this.getColor(),
+                this.getOdometer(),this.getPrice());
+        System.out.println(vehicleInfo);
+    }
+
     public int getVin() {
         return vin;
     }
