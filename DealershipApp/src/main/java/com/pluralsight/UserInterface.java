@@ -103,6 +103,7 @@ public class UserInterface {
     public void processGetByVehicleTypeRequest() {
         List<Vehicle> filteredByType = this.dealership
                 .getVehiclesByType(MyUtils.askQuestionGetString("Enter the vehicle type: "));
+
         displayVehicles(filteredByType);
     }
 
@@ -146,6 +147,7 @@ public class UserInterface {
     }
 
     public void displayVehicles(List<Vehicle> filteredVehicleList) {
+        MyUtils.printDivider(40);
         for (Vehicle vehicle : filteredVehicleList) {
             vehicle.printVehicleInfo();
         }
@@ -153,6 +155,7 @@ public class UserInterface {
     }
 
     private static void printMenu() {
+        MyUtils.printDivider(40);
         System.out.println("Menu");
         System.out.println("   1-Find vehicles within a price range");
         System.out.println("   2-Find vehicles by make / model");

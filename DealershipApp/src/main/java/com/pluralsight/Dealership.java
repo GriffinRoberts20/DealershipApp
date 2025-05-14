@@ -58,8 +58,8 @@ public class Dealership {
         int finalMin=min;
         int finalMax = max;
         return inventory.stream()
-                .filter(vehicle -> vehicle.getYear()>=finalMin)
-                .filter(vehicle -> vehicle.getYear()<= finalMax)
+                .filter(vehicle -> vehicle.getOdometer()>=finalMin)
+                .filter(vehicle -> vehicle.getOdometer()<= finalMax)
                 .collect(Collectors.toList());
     }
 
