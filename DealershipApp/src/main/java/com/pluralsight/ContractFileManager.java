@@ -32,9 +32,22 @@ public class ContractFileManager {
                 // Parse line into a Vehicle object and add to inventory
                 Vehicle vehicle=new Vehicle(Integer.parseInt(contractInfo[4]),Integer.parseInt(contractInfo[5]),contractInfo[6],
                         contractInfo[7],contractInfo[8],contractInfo[9],Integer.parseInt(contractInfo[10]),Double.parseDouble(contractInfo[11]));
+
                 if(contractInfo[0].equalsIgnoreCase("SALE")){
-                    boolean finance= contractInfo[16].equalsIgnoreCase("YES");
-                    contracts.add(new SalesContract(contractInfo[1],contractInfo[2],contractInfo[3], vehicle,finance));
+                    boolean finance = contractInfo[16].equalsIgnoreCase("YES");
+                    if(contractInfo.length==19){
+                        ArrayList<AddOn> addOns=new ArrayList<>();
+                        if(contractInfo[18].contains("Ct")) addOns.add(new CargoTray());
+                        if(contractInfo[18].contains("Fl")) addOns.add(new FloorMats());
+                        if(contractInfo[18].contains("Nt")) addOns.add(new NitrogenTires());
+                        if(contractInfo[18].contains("Sg")) addOns.add(new SplashGuards());
+                        if(contractInfo[18].contains("Wl")) addOns.add(new WheelLocks());
+                        if(contractInfo[18].contains("Wt")) addOns.add(new WindowTinting());
+                        contracts.add(new SalesContract(contractInfo[1], contractInfo[2], contractInfo[3], vehicle, finance, addOns));
+                    }
+                    else {
+                        contracts.add(new SalesContract(contractInfo[1], contractInfo[2], contractInfo[3], vehicle, finance));
+                    }
                 }
                 else{
                     contracts.add(new LeaseContract(contractInfo[1],contractInfo[2],contractInfo[3],vehicle));

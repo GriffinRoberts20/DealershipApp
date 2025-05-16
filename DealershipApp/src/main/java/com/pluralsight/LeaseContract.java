@@ -37,11 +37,12 @@ public class LeaseContract extends Contract{
 
     @Override
     public double getTotalPrice(){
-        return this.getExpectedEndingValue()*(1+0.04*3)+this.getLeaseFee();
+        return (this.getExpectedEndingValue()+this.getLeaseFee())*(1+(0.04*3));
     }
 
     @Override
     public double getMonthlyPayment(){
         return this.getTotalPrice()/36;
     }
+
 }

@@ -128,7 +128,20 @@ public class UserInterface {
             String name = MyUtils.askQuestionGetString("Enter the buyers name: ");
             String email = MyUtils.askQuestionGetString("Enter the buyers email: ");
             boolean financing = MyUtils.askQuestionGetString("Enter Y to finance the vehicle: ").equalsIgnoreCase("Y");
-            SalesContract sale=new SalesContract(date,name,email,toSell,financing);
+            SalesContract sale;
+            if(MyUtils.askQuestionGetString("Enter Y to choose add ons: ").equalsIgnoreCase("Y")){
+                ArrayList<AddOn> addOns=new ArrayList<>();
+                if(MyUtils.askQuestionGetString("Enter Y to add Cargo Tray: ").equalsIgnoreCase("Y")) addOns.add(new CargoTray());
+                if(MyUtils.askQuestionGetString("Enter Y to add All-season Floor Mats: ").equalsIgnoreCase("Y")) addOns.add(new FloorMats());
+                if(MyUtils.askQuestionGetString("Enter Y to add Nitrogen Tires: ").equalsIgnoreCase("Y")) addOns.add(new NitrogenTires());
+                if(MyUtils.askQuestionGetString("Enter Y to add Splash Guards: ").equalsIgnoreCase("Y")) addOns.add(new SplashGuards());
+                if(MyUtils.askQuestionGetString("Enter Y to add Wheel Locks: ").equalsIgnoreCase("Y")) addOns.add(new WheelLocks());
+                if(MyUtils.askQuestionGetString("Enter Y to add Window Tinting: ").equalsIgnoreCase("Y")) addOns.add(new WindowTinting());
+                sale=new SalesContract(date,name,email,toSell,financing,addOns);
+            }
+            else {
+                sale = new SalesContract(date, name, email, toSell, financing);
+            }
             System.out.println("This is the current sale info:");
             System.out.println(sale);
             if(MyUtils.askQuestionGetString("Enter Y if this is correct: ").equalsIgnoreCase("Y")){

@@ -66,7 +66,7 @@ public class DealershipFileManager {
 
             // Close the writer and confirm update
             writer.close();
-            System.out.println("Transactions successfully updated.");
+            System.out.println("Dealership successfully updated.");
 
         } catch (Exception e) {
             // Wrap and rethrow exceptions as runtime
