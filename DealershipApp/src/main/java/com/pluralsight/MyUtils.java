@@ -37,14 +37,12 @@ public class MyUtils {
             try{
                 System.out.print(q);
                 answer = Integer.parseInt(input.nextLine());
+                asking=false;
             } catch (Exception e) {
-                input.nextLine();
                 printDivider(30);
                 System.out.println("Error: must enter a whole number.");
                 printDivider(30);
-                continue;
             }
-            asking=false;
         }
         return answer;
     }
@@ -55,14 +53,12 @@ public class MyUtils {
             try{
                 System.out.print(q);
                 answer = Float.parseFloat(input.nextLine());
+                asking=false;
             } catch (Exception e) {
-                input.nextLine();
                 printDivider(30);
                 System.out.println("Error: must enter a number.");
                 printDivider(30);
-                continue;
             }
-            asking=false;
         }
         return answer;
     }
@@ -73,14 +69,12 @@ public class MyUtils {
             try{
                 System.out.print(q);
                 answer = Double.parseDouble(input.nextLine());
+                asking=false;
             } catch (Exception e) {
-                input.nextLine();
                 printDivider(30);
                 System.out.println("Error: must enter a number.");
                 printDivider(30);
-                continue;
             }
-            asking=false;
         }
         return answer;
     }
@@ -93,6 +87,6 @@ public class MyUtils {
 
     public static void pressEnterToContinue(){
         System.out.print("Press enter to continue.");
-        String answer=input.nextLine();
+        input.nextLine();
     }
 }
